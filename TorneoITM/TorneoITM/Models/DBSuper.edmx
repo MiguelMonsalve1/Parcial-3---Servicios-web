@@ -7,9 +7,9 @@
       <Schema Namespace="TorneoITMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdministradorITM">
           <Key>
-            <PropertyRef Name="idAministradorITM" />
+            <PropertyRef Name="idAdministradorITM" />
           </Key>
-          <Property Name="idAministradorITM" Type="int" Nullable="false" />
+          <Property Name="idAdministradorITM" Type="int" Nullable="false" />
           <Property Name="Documento" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="NombreCompleto" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="Usuario" Type="varchar" MaxLength="20" Nullable="false" />
@@ -33,7 +33,7 @@
           <End Role="Torneos" Type="Self.Torneos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdministradorITM">
-              <PropertyRef Name="idAministradorITM" />
+              <PropertyRef Name="idAdministradorITM" />
             </Principal>
             <Dependent Role="Torneos">
               <PropertyRef Name="idAdministradorITM" />
@@ -55,16 +55,16 @@
       <Schema Namespace="TorneoITMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AdministradorITM">
           <Key>
-            <PropertyRef Name="idAministradorITM" />
+            <PropertyRef Name="idAdministradorITM" />
           </Key>
-          <Property Name="idAministradorITM" Type="Int32" Nullable="false" />
+          <Property Name="idAdministradorITM" Type="Int32" Nullable="false" />
           <Property Name="Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NombreCompleto" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Torneos" Relationship="Self.FK_Torneos_AdministradorITM" FromRole="AdministradorITM" ToRole="Torneos" />
         </EntityType>
-        <EntityType Name="Torneos">
+        <EntityType Name="Torneo">
           <Key>
             <PropertyRef Name="idTorneos" />
           </Key>
@@ -80,10 +80,10 @@
         </EntityType>
         <Association Name="FK_Torneos_AdministradorITM">
           <End Role="AdministradorITM" Type="Self.AdministradorITM" Multiplicity="1" />
-          <End Role="Torneos" Type="Self.Torneos" Multiplicity="*" />
+          <End Role="Torneos" Type="Self.Torneo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdministradorITM">
-              <PropertyRef Name="idAministradorITM" />
+              <PropertyRef Name="idAdministradorITM" />
             </Principal>
             <Dependent Role="Torneos">
               <PropertyRef Name="idAdministradorITM" />
@@ -91,10 +91,10 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TorneoITMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdministradorITM" EntityType="Self.AdministradorITM" />
-          <EntitySet Name="Torneos" EntityType="Self.Torneos" />
+          <EntitySet Name="AdministradorITMs" EntityType="Self.AdministradorITM" />
+          <EntitySet Name="Torneos" EntityType="Self.Torneo" />
           <AssociationSet Name="FK_Torneos_AdministradorITM" Association="Self.FK_Torneos_AdministradorITM">
-            <End Role="AdministradorITM" EntitySet="AdministradorITM" />
+            <End Role="AdministradorITM" EntitySet="AdministradorITMs" />
             <End Role="Torneos" EntitySet="Torneos" />
           </AssociationSet>
         </EntityContainer>
@@ -104,10 +104,10 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TorneoITMModelStoreContainer" CdmEntityContainer="TorneoITMEntities">
-          <EntitySetMapping Name="AdministradorITM">
+          <EntitySetMapping Name="AdministradorITMs">
             <EntityTypeMapping TypeName="TorneoITMModel.AdministradorITM">
               <MappingFragment StoreEntitySet="AdministradorITM">
-                <ScalarProperty Name="idAministradorITM" ColumnName="idAministradorITM" />
+                <ScalarProperty Name="idAdministradorITM" ColumnName="idAdministradorITM" />
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
@@ -116,7 +116,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Torneos">
-            <EntityTypeMapping TypeName="TorneoITMModel.Torneos">
+            <EntityTypeMapping TypeName="TorneoITMModel.Torneo">
               <MappingFragment StoreEntitySet="Torneos">
                 <ScalarProperty Name="idTorneos" ColumnName="idTorneos" />
                 <ScalarProperty Name="idAdministradorITM" ColumnName="idAdministradorITM" />
@@ -143,10 +143,10 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

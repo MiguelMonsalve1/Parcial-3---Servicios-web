@@ -14,9 +14,9 @@ namespace TorneoITM.Controllers
     {
         [HttpPost]
         [Route("Ingresar")]
-        public string Ingresar([FromBody] Torneos torneo)
+        public string Ingresar([FromBody] Torneo torneo)
         {
-            Torneo gestor = new Torneo();
+            TorneoITM.Clases.TorneoITM gestor = new TorneoITM.Clases.TorneoITM(); 
             gestor.torneo = torneo;
             return gestor.IngresarTorneo(
                 torneo.idAdministradorITM,
@@ -31,9 +31,9 @@ namespace TorneoITM.Controllers
 
         [HttpPut]
         [Route("Actualizar")]
-        public string Actualizar([FromBody] Torneos torneo)
+        public string Actualizar([FromBody] Torneo torneo)
         {
-            Torneo gestor = new Torneo();
+            TorneoITM.Clases.TorneoITM gestor = new TorneoITM.Clases.TorneoITM();
             return gestor.ActualizarTorneo(
                 torneo.idTorneos,
                 torneo.TipoTorneo,
@@ -47,9 +47,9 @@ namespace TorneoITM.Controllers
 
         [HttpGet]
         [Route("Consultar")]
-        public Torneos Consultar(string tipoTorneo, string nombreTorneo, DateTime fecha)
+        public Torneo Consultar(string tipoTorneo, string nombreTorneo, DateTime fecha)
         {
-            Torneo gestor = new Torneo();
+            TorneoITM.Clases.TorneoITM gestor = new TorneoITM.Clases.TorneoITM();
             return gestor.ConsultarTorneo(tipoTorneo, nombreTorneo, fecha);
         }
 
@@ -57,7 +57,7 @@ namespace TorneoITM.Controllers
         [Route("Eliminar")]
         public string Eliminar(int id)
         {
-            Torneo gestor = new Torneo();
+            TorneoITM.Clases.TorneoITM gestor = new TorneoITM.Clases.TorneoITM();
             return gestor.EliminarTorneo(id);
         }
     }

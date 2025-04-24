@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.10.35122.118
+VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneoITM", "TorneoITM\TorneoITM.csproj", "{DFC9A717-3ED2-475C-887F-18EAA5DEE3FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneoITM", "TorneoITM\TorneoITM.csproj", "{6DA2B200-2348-4298-9BC1-19A92D00608D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFC9A717-3ED2-475C-887F-18EAA5DEE3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFC9A717-3ED2-475C-887F-18EAA5DEE3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFC9A717-3ED2-475C-887F-18EAA5DEE3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFC9A717-3ED2-475C-887F-18EAA5DEE3FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA2B200-2348-4298-9BC1-19A92D00608D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA2B200-2348-4298-9BC1-19A92D00608D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA2B200-2348-4298-9BC1-19A92D00608D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA2B200-2348-4298-9BC1-19A92D00608D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {36E54CF5-81C0-43CA-A64A-A3F80AAC14A5}
+		SolutionGuid = {3352027B-6895-4E7F-B0FB-F14D5DF603E1}
 	EndGlobalSection
 EndGlobal
